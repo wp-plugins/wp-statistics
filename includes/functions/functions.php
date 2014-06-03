@@ -158,11 +158,13 @@
 				break;
 				
 			default:
-				$sqlstatement = "SELECT SUM(count) FROM {$table_prefix}statistics_pages WHERE `date` BETWEEN '{$s->Current_Date('Y-m-d', $time)}' AND '{$s->Current_Date('Y-m-d')}' AND {$page_sql}";
+				$sqlstatement = "SELECT SUM(count) FROM {$table_prefix}statistics_pages WHERE `date` = '{$s->Current_Date('Y-m-d', $time)}' AND {$page_sql}";
 				break;
 		}
 
 		$result = $wpdb->get_var( $sqlstatement );
+		
+		if( $result == '' ) { $result = 0; }
 		
 		return $result;
 	}
