@@ -642,10 +642,12 @@
 								foreach($uris as $uri) {
 									$i++;
 									echo "<div class='log-item'>";
-									echo "<div class='log-referred'><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
-									echo "<div class='log-ip'>".__('Visits', 'wp_statistics').": {$uri[1]}</div>";
-									echo "<div class='clear'></div>";
-									echo "<div>{$uri[3]}</div>";
+
+									if( $uri[3] == '' ) { $uri[3] = '[' . __('No page title found', 'wp_statistics') . ']'; }
+									
+									echo "<div>{$i} - {$uri[3]}</div>";
+									echo "<div style='float: right'>".__('Visits', 'wp_statistics').": {$uri[1]}</div>";
+									echo "<div><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
 									echo "</div>";
 									
 									if( $i > 10 ) { break; }

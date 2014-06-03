@@ -32,7 +32,7 @@
 									enabled: false
 								},
 								title: {
-									text: '<?php echo __('Page Stats', 'wp_statistics'); ?>',
+									text: '<?php echo __('Top 5 Page Trending Stats', 'wp_statistics'); ?>',
 									style: {
 										fontSize: '12px',
 										fontFamily: 'Tahoma',
@@ -56,7 +56,7 @@
 								yAxis: {
 									min: 0,
 									title: {
-										text: '<?php _e('Number of visits and visitors', 'wp_statistics'); ?>',
+										text: '<?php _e('Number of Hits', 'wp_statistics'); ?>',
 										style: {
 											fontSize: '12px',
 											fontFamily: 'Tahoma'
@@ -134,14 +134,18 @@
 								$site_url = site_url();
 								
 								echo "<div class='log-latest'>";
+								$count = 0;
 								
 								foreach($uris as $uri) {
-							
+									$count++;
+									
 									echo "<div class='log-item'>";
-									echo "<div class='log-referred'><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
-									echo "<div class='log-ip'>".__('Visits', 'wp_statistics').": {$uri[1]}</div>";
-									echo "<div class='clear'></div>";
-									echo "<div>{$uri[3]}</div>";
+
+									if( $uri[3] == '' ) { $uri[3] = '[' . __('No page title found', 'wp_statistics') . ']'; }
+									
+									echo "<div>{$count} - {$uri[3]}</div>";
+									echo "<div style='float: right'>".__('Visits', 'wp_statistics').": {$uri[1]}</div>";
+									echo "<div><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
 									echo "</div>";
 								
 								}
