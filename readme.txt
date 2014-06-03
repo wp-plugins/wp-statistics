@@ -103,6 +103,7 @@ provider = the search provider to get stats on (bing/duckduckgo/google/yahoo/yan
 * User online: `[wpstatistics stat="usersonline"]`
 * Today visit: `[wpstatistics stat="visits" time="today"]`
 * Today vistors: `[wpstatistics stat="vistors" time="today"]`
+* Page visits: `[wpstatistics stat="pagevists" time="total"]`
 * All Search Engine reffered: `[wpstatistics stat="searchs" provider="all"]`
 * Total posts: `[wpstatistics stat="postcount"]`
 * Total pages: `[wpstatistics stat="pagecount"]`
