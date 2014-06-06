@@ -650,7 +650,7 @@
 									echo "<div><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
 									echo "</div>";
 									
-									if( $i > 10 ) { break; }
+									if( $i > 9 ) { break; }
 								}
 								
 								echo "</div>";
