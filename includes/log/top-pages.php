@@ -118,47 +118,51 @@
 					<h3 class="hndle"><span><?php _e('Top Pages', 'wp_statistics'); ?></span></h3>
 					<div class="inside">
 							<?php
-								// Instantiate pagination object with appropriate arguments
-								$pagesPerSection = 10;
-								$options = array(25, "All");
-								$stylePageOff = "pageOff";
-								$stylePageOn = "pageOn";
-								$styleErrors = "paginationErrors";
-								$styleSelect = "paginationSelect";
+								if( $total > 0 ) {
+									// Instantiate pagination object with appropriate arguments
+									$pagesPerSection = 10;
+									$options = array(25, "All");
+									$stylePageOff = "pageOff";
+									$stylePageOn = "pageOn";
+									$styleErrors = "paginationErrors";
+									$styleSelect = "paginationSelect";
 
-								$Pagination = new Pagination($total, $pagesPerSection, $options, false, $stylePageOff, $stylePageOn, $styleErrors, $styleSelect);
-								
-								$start = $Pagination->getEntryStart();
-								$end = $Pagination->getEntryEnd();
-								
-								$site_url = site_url();
-								
-								echo "<div class='log-latest'>";
-								$count = 0;
-								
-								foreach($uris as $uri) {
-									$count++;
+									$Pagination = new Pagination($total, $pagesPerSection, $options, false, $stylePageOff, $stylePageOn, $styleErrors, $styleSelect);
 									
-									echo "<div class='log-item'>";
+									$start = $Pagination->getEntryStart();
+									$end = $Pagination->getEntryEnd();
+									
+									$site_url = site_url();
+									
+									echo "<div class='log-latest'>";
+									$count = 0;
+									
+									foreach($uris as $uri) {
+										$count++;
+										
+										echo "<div class='log-item'>";
 
-									if( $uri[3] == '' ) { $uri[3] = '[' . __('No page title found', 'wp_statistics') . ']'; }
+										if( $uri[3] == '' ) { $uri[3] = '[' . __('No page title found', 'wp_statistics') . ']'; }
+										
+										echo "<div>{$count} - {$uri[3]}</div>";
+										echo "<div style='float: right'>".__('Visits', 'wp_statistics').": {$uri[1]}</div>";
+										echo "<div><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
+										echo "</div>";
 									
-									echo "<div>{$count} - {$uri[3]}</div>";
-									echo "<div style='float: right'>".__('Visits', 'wp_statistics').": {$uri[1]}</div>";
-									echo "<div><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
+									}
+									
 									echo "</div>";
-								
 								}
-								
-								echo "</div>";
 							?>
 					</div>
 				</div>
 				
+<?php if( $total > 0 ) {?>
 				<div class="pagination-log">
 					<?php echo $Pagination->display(); ?>
 					<p id="result-log"><?php echo ' ' . __('Page', 'wp_statistics') . ' ' . $Pagination->getCurrentPage() . ' ' . __('From', 'wp_statistics') . ' ' . $Pagination->getTotalPages(); ?></p>
 				</div>
+<?php } ?>
 			</div>
 		</div>
 	</div>
