@@ -99,7 +99,7 @@
 									echo "]\n";
 									echo "								},\n";
 									
-									if( $count > 5 ) { break; }
+									if( $count > 4 ) { break; }
 								}
 
 ?>
