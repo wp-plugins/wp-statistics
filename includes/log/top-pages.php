@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	jQuery(document).ready(function(){
-	postboxes.add_postbox_toggles(pagenow);
+		postboxes.add_postbox_toggles(pagenow);
 	});
 </script>
 <?php
@@ -11,7 +11,7 @@
 <div class="wrap">
 	<?php screen_icon('options-general'); ?>
 	<h2><?php _e('Top Pages', 'wp_statistics'); ?></h2>
-	<div class="postbox-container" id="last-log">
+	<div class="postbox-container" style="width: 100%; float: left; margin-right:20px">
 		<div class="metabox-holder">
 			<div class="meta-box-sortables">
 				<div class="postbox">
@@ -143,9 +143,8 @@
 
 									if( $uri[3] == '' ) { $uri[3] = '[' . __('No page title found', 'wp_statistics') . ']'; }
 									
-									echo "<div>{$count} - {$uri[3]}</div>";
+									echo "<div>{$count} - <a href='{$uri[1]}'>{$uri[3]}</a></div>";
 									echo "<div style='float: right'>".__('Visits', 'wp_statistics').": {$uri[1]}</div>";
-									echo "<div><a href='{$site_url}{$uri[0]}'>{$uri[0]}</a></div>";
 									echo "</div>";
 								
 								}
