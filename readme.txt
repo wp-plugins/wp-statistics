@@ -160,6 +160,7 @@ No.
 == Changelog ==
 = 5.5 =
 * Added page tracking support.
+* Updated: Turkish (tr_TR) language.
 
 = 5.4 =
 * Fixed: GeoIP dependency code to ignore safe mode check in PHP 5.4 or newer.
