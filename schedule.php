@@ -116,7 +116,7 @@
 	function wp_statistics_add_visit_event() {
 		GLOBAL $wpdb, $WP_Statistics;
 
-		$sqlstring = $wpdb->prepare( 'INSERT INTO ' . $wpdb->prefix . 'statistics_visit (last_visit, last_counter, visit) VALUES ( %s, %s, %d)', $WP_Statistics->Current_Date(null, '+1'), $WP_Statistics->Current_date('Y-m-d', '+1'), 0 );
+		$sqlstring = $wpdb->prepare( 'INSERT INTO ' . $wpdb->prefix . 'statistics_visit (last_visit, last_counter, visit) VALUES ( %s, %s, %d)', $WP_Statistics->Current_Date('Y-m-d', '+1'), $WP_Statistics->Current_date('Y-m-d', '+1'), 0 );
 
 		$wpdb->query( $sqlstring );
 	}
